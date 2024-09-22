@@ -50,6 +50,12 @@ func TestValidateSlug(t *testing.T) {
 			t.Errorf("Test ValidateSlug failed: %s", test)
 		}
 	}
+
+	goodSample := "파이썬-기초-강좌-1"
+
+	if !ValidateSlug(goodSample) {
+		t.Errorf("Test ValidateSlug failed: %s", goodSample)
+	}
 }
 
 func hasSpecialCharacter(t *testing.T, str string) {

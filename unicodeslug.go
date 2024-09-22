@@ -14,8 +14,8 @@ func Slugify(input string) string {
 }
 
 func ValidateSlug(slug string) bool {
-	//re := regexp.MustCompile(`[!@#$%^*/\s]|^-|-$`)
-	re := regexp.MustCompile(`[^\p{L}\p{N}]+`)
+	re := regexp.MustCompile(`[!@#$%^&*()/\\\s]|^-|-$`)
+	// Check if the slug contains any special characters excluding middle hyphens
 	match := re.MatchString(slug)
 	return !match
 }
