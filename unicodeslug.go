@@ -1,6 +1,9 @@
 package unicodeslug
 
-import "regexp"
+import (
+	"regexp"
+	"strings"
+)
 
 func Slugify(input string) string {
 	// replace all special characters including spaces with a hyphen
@@ -10,6 +13,9 @@ func Slugify(input string) string {
 	// replace a leading hyphen and an ending hyphen
 	reHyphen := regexp.MustCompile(`^-+|-+$`)
 	slug = reHyphen.ReplaceAllString(slug, "")
+
+	// lower all characters
+	slug = strings.ToLower(slug)
 	return slug
 }
 
